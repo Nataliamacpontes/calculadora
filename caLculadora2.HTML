@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <script lang="JavaScript">
+        var sla, n1
+
+        function botao(bot)
+        {
+            document.frm.txtSaida.value += bot
+        }
+        function ident(op) {
+           n1 = parseFloat(document.frm.txtSaida.value)
+
+           switch (op)
+            {
+                case 's':
+                    sla = 1
+                break;
+                case 'su':
+                    sla = 2
+                break;
+                case 'd':
+                    sla = 3
+                break;
+                case 'm':
+                    sla = 4
+                break;
+           }
+
+           document.frm.txtSaida.value = "";
+        }
+        function  resultado(){
+            var n2 = parseFloat(document.frm.txtSaida.value)
+            var r
+
+            switch (sla)
+            {
+                case 1:
+                    r = n1 + n2
+                break;
+                case 2:
+                    r = n1 - n2
+                break;
+                case 3:
+                    r = n1 / n2
+                break;
+                case 4:
+                    r = n1 * n2
+                break;
+           }
+
+           document.frm.txtSaida.value = r;
+        }
+    
+    </script>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 35px;
+            background-color: rgb(230, 255, 232);
+        }
+        input[type=button]{
+            border-radius: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: rgb(196, 194, 194);
+        }
+        input[type=reset]{
+            border-radius: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: rgb(196, 194, 194);
+        }
+        input[type=text]{
+            border-radius: 5px;
+            width: 200px;
+            height: 40px;
+            margin-top: 19px;
+            margin-bottom: -12px;
+            background-color: green;
+        }
+        table{
+            height: 55px;
+            width: 85px;
+        }
+        div{
+            margin: auto;
+            background-color: gray;
+            border-radius: 10px;
+            height: 340px;
+            width: 265px;
+        }
+    </style>
+    
+</head>
+<body> 
+
+    <div>
+
+ <form name="frm">
+    <p align="center"><input type="text" name="txtSaida" readonly></p>
+
+    <table align="center">
+<tr>
+    <td>
+        <input type="button" name="btnUm" value="1" Onclick="botao(1)">
+    </td>
+    <td>
+        <input type="button" name="btnDois" value="2" Onclick="botao(2)">
+    </td>
+    <td>
+        <input type="button" name="btnTres" value="3" Onclick="botao(3)">
+    </td>
+    <td>
+        <input type="reset" name="limpa" value="c" Onclick="botao(0)">
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <input type="button" name="btnQuatro" value="4" Onclick="botao(4)">
+    </td>
+    <td>
+        <input type="button" name="btnCinco" value="5" Onclick="botao(5)">
+    </td>
+    <td>
+        <input type="button" name="btnSeis" value="6" Onclick="botao(6)">
+    </td>
+    <td>
+        <input type="button" name="soma" value="+" Onclick="ident('s')">
+</td>
+</tr>
+
+<tr>
+    <td>
+        <input type="button" name="btnSete" value="7" Onclick="botao(7)">
+    </td>
+    <td>
+        <input type="button" name="btnOito" value="8" Onclick="botao(8)">
+    </td>
+    <td>
+        <input type="button" name="btnNove" value="9" Onclick="botao(9)">
+    </td>
+    <td>
+        <input type="button" name="sub" value="-" Onclick="ident('su')">
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <input type="button" name="btnZero" value="0" Onclick="botao(0)">
+    </td>
+    <td>
+        <input type="button" name="mult" value="x" Onclick="ident('m')">
+    </td>
+    <td>
+        <input type="button" name="div" value="/" Onclick="ident('d')">
+    </td>
+    <td>
+        <input type="button" name="btnResul" value="=" Onclick="resultado()">
+    </td>
+</tr>
+
+</table>
+
+</div>
+
+</form> 
+</body>
+</html>
